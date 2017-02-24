@@ -17,11 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
         <activity android:name=".activities.ActivityBasket"></activity>
 
         <meta-data android:name="DATABASE" android:value="shopping.db" />
-        <meta-data android:name="VERSION" android:value="1.00" />
+        <meta-data android:name="VERSION" android:value="1.001" />
         <meta-data android:name="QUERY_LOG" android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.vaclavhnizda.myfoodbasket" />
     </application>
