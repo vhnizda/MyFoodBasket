@@ -7,23 +7,11 @@ import java.util.List;
  */
 public class DBManager {
 
+    private List<ShopItem> allItems;
+
     public DBManager(){
 
-        //TEST
-        ShopItem.deleteAll(ShopItem.class);
-
-        ShopItem myItem;
-        myItem = new ShopItem("tomato","bunch",.95,200);
-        myItem.save();
-        myItem = new ShopItem("beans","can",.73,100);
-        myItem.save();
-        myItem = new ShopItem("eggs", "dozen",2.10,100);
-        myItem.save();
-        myItem = new ShopItem("milk", "bottle",1.30,50);
-        myItem.save();
-
-
-        List<ShopItem> allItems = ShopItem.listAll(ShopItem.class);
+        loadData();
 
 
         for(ShopItem item : allItems) {
@@ -33,6 +21,25 @@ public class DBManager {
             ShopItem temp = ShopItem.findById(ShopItem.class,item.getId());
 
             System.out.println(temp.getId() + " : " +temp.iconRef + " uses the measurement unit: " + temp.unitOfMesurement);
+        }
+    }
+
+    private void loadData() {
+
+        allItems = ShopItem.listAll(ShopItem.class);
+
+        if(allItems.size() < 4) {
+            ShopItem.deleteAll(ShopItem.class);
+
+            ShopItem myItem;
+            myItem = new ShopItem("tomato", "bunch", .95, 200);
+            myItem.save();
+            myItem = new ShopItem("beans", "can", .73, 100);
+            myItem.save();
+            myItem = new ShopItem("eggs", "dozen", 2.10, 100);
+            myItem.save();
+            myItem = new ShopItem("milk", "bottle", 1.30, 50);
+            myItem.save();
         }
     }
 }
