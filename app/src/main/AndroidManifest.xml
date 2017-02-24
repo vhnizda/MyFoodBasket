@@ -7,7 +7,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name="com.orm.SugarApp">
+
         <activity android:name=".activities.MainActivityFoodList">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,7 +17,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity android:name=".activities.ActivityBasket"></activity>
+
+        <meta-data android:name="DATABASE" android:value="shopping.db" />
+        <meta-data android:name="VERSION" android:value="1.00" />
+        <meta-data android:name="QUERY_LOG" android:value="true" />
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.vaclavhnizda.myfoodbasket" />
     </application>
 
 </manifest>
