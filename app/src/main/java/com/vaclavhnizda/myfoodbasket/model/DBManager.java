@@ -25,14 +25,14 @@ public class DBManager {
 
         List<ShopItem> allItems = ShopItem.listAll(ShopItem.class);
 
-        for(ShopItem item : allItems) {
-            Long id = item.getId();
 
+        for(ShopItem item : allItems) {
 
             System.out.println(item.getId() + " : " +item.iconRef + " are in a " + item.unitOfMesurement);
 
+            ShopItem temp = ShopItem.findById(ShopItem.class,item.getId());
 
+            System.out.println(temp.getId() + " : " +temp.iconRef + " uses the measurement unit: " + temp.unitOfMesurement);
         }
-
     }
 }
