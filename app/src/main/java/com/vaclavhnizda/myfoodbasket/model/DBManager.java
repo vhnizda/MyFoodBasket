@@ -32,13 +32,13 @@ public class DBManager {
             ShopItem.deleteAll(ShopItem.class);
 
             ShopItem myItem;
-            myItem = new ShopItem("tomato", "bunch", .95, 200);
+            myItem = new ShopItem("tomato", "bunch", .95, 100);
             myItem.save();
             myItem = new ShopItem("beans", "can", .73, 100);
             myItem.save();
             myItem = new ShopItem("eggs", "dozen", 2.10, 100);
             myItem.save();
-            myItem = new ShopItem("milk", "bottle", 1.30, 50);
+            myItem = new ShopItem("milk", "bottle", 1.30, 100);
             myItem.save();
         }
     }
