@@ -12,7 +12,6 @@ public class DisplayStats {
     public static int getWidth(Activity activity){
         DisplayMetrics displayMetrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        int height = displayMetrics.heightPixels;
         return displayMetrics.widthPixels;
     }
 

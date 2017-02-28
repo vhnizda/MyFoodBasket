@@ -11,7 +11,7 @@
     tools:context="com.vaclavhnizda.myfoodbasket.activities.MainActivityFoodList">
 
     <Button
-        android:text="Currency: USD"
+        android:text="@string/currency_default"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/currency_button_main"
@@ -19,7 +19,7 @@
         android:layout_alignParentStart="true"/>
 
     <Button
-        android:text="Shopping basket"
+        android:text="@string/shopping_basket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

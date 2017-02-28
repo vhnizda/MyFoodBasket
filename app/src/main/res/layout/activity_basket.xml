@@ -11,7 +11,7 @@
     tools:context="com.vaclavhnizda.myfoodbasket.activities.ActivityBasket">
 
     <Button
-        android:text="Return Shopping"
+        android:text="@string/return_shopping"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -19,7 +19,7 @@
         android:id="@+id/main_return_button_in_basket" />
 
     <Button
-        android:text="Currency: USD"
+        android:text="@string/currency_default"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/currency_button_in_basket"

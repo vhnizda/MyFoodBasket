@@ -17,7 +17,7 @@ public class ActivityBasket extends AppCompatActivity {
     }
 
     @OnClick(R.id.main_return_button_in_basket)
-    public void returnToShoping(){
+    public void returnToShopping(){
         this.finish();
     }
 

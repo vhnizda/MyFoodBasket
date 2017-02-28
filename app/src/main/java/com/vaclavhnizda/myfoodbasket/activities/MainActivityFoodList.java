@@ -3,7 +3,6 @@ package com.vaclavhnizda.myfoodbasket.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 
 import com.vaclavhnizda.myfoodbasket.R;
 import com.vaclavhnizda.myfoodbasket.controller.ControlManager;

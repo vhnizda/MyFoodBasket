@@ -8,16 +8,16 @@ import com.orm.SugarRecord;
 
 public class ShopItem extends SugarRecord{
     String iconRef;
-    String unitOfMesurement;
-    double priceUSDreference;
+    String unitOfMeasurement;
+    double priceUSDReference;
     int stockCount; // use later
 
     public ShopItem(){}
 
-    public ShopItem(String iconRef, String unitOfMesurement, double priceUSDreference, int stockCount){
+    public ShopItem(String iconRef, String unitOfMeasurement, double priceUSDreference, int stockCount){
         this.iconRef = iconRef;
-        this.unitOfMesurement = unitOfMesurement;
-        this.priceUSDreference = priceUSDreference;
+        this.unitOfMeasurement = unitOfMeasurement;
+        this.priceUSDReference = priceUSDreference;
         this.stockCount = stockCount;
     }
 
