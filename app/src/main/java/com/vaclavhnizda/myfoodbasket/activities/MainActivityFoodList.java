@@ -26,6 +26,18 @@ public class MainActivityFoodList extends AppCompatActivity {
         //TODO Generate buttons and link Controller to clicks & add to view
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        myControlMan.saveData(this);
+
+    }
+
 
     @OnClick(R.id.basket_button_main)
     public void launchBasket(){

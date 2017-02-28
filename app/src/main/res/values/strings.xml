@@ -3,4 +3,5 @@
     <string name="return_shopping">Return Shopping</string>
     <string name="currency_default">Currency: USD</string>
     <string name="shopping_basket">Shopping basket</string>
+    <string name="preference_file_key">com.vaclavhnizda.myfoodbasket.PREFERENCE_FILE_KEY</string>
 </resources>
