@@ -11,18 +11,18 @@
     tools:context="com.vaclavhnizda.myfoodbasket.activities.ActivityBasket">
 
     <Button
-        android:text="Shopping basket"
+        android:text="Return Shopping"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/basket_button" />
+        android:id="@+id/main_return_button_in_basket" />
 
     <Button
         android:text="Currency: USD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/currency_button"
+        android:id="@+id/currency_button_in_basket"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
