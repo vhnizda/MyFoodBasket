@@ -68,6 +68,11 @@ public class DBManager {
 
     //TODO create method to clear order
 
+    //TODO create method to return all available shop items
+    public List<ShopItem> getItemsAvailable(){
+        return allShopItems;
+    }
+
     /**
      * This method will count the order and add up the total
      * @return
@@ -123,4 +128,5 @@ public class DBManager {
         }
         return itemPlaceholder;
     }
+
 }

@@ -1,4 +1,4 @@
-package com.vaclavhnizda.myfoodbasket.tools;
+package com.vaclavhnizda.myfoodbasket.viewtools;
 
 import android.app.Activity;
 import android.util.DisplayMetrics;
