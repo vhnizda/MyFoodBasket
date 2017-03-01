@@ -3,12 +3,10 @@ package com.vaclavhnizda.myfoodbasket.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.LinearLayout;
 
 import com.vaclavhnizda.myfoodbasket.R;
 import com.vaclavhnizda.myfoodbasket.controller.ControlManager;
-import com.vaclavhnizda.myfoodbasket.model.ShopItem;
 import com.vaclavhnizda.myfoodbasket.viewtools.LayoutBuilder;
 
 import java.util.List;
@@ -54,8 +52,19 @@ public class MainActivityFoodList extends AppCompatActivity{
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
     public void onStop(){
         super.onStop();
+        //TODO close down all big objects
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
         //TODO close down all big objects
     }
 
@@ -67,7 +76,4 @@ public class MainActivityFoodList extends AppCompatActivity{
         startActivity(intent);
     }
 
-    public void onClick(View view){
-
-    }
 }
