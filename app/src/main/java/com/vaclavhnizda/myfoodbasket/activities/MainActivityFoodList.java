@@ -9,8 +9,6 @@ import com.vaclavhnizda.myfoodbasket.R;
 import com.vaclavhnizda.myfoodbasket.controller.ControlManager;
 import com.vaclavhnizda.myfoodbasket.viewtools.LayoutBuilder;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -47,24 +45,18 @@ public class MainActivityFoodList extends AppCompatActivity{
     @Override
     public void onPause(){
         super.onPause();
-        //myControlMan.saveData(this);
 
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
+        myControlMan.saveData(this);
     }
 
     @Override
     public void onStop(){
         super.onStop();
-        //TODO close down all big objects
-    }
-
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
         //TODO close down all big objects
     }
 

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import com.vaclavhnizda.myfoodbasket.R;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -24,7 +25,8 @@ public class DBManager {
 
     public DBManager(){
 
-        loadData();
+        loadTempData();
+//        loadLocalData();
 
 
         for(ShopItem item : allShopItems) {
@@ -43,7 +45,7 @@ public class DBManager {
      * Currently loads a preselected No. of items (4 specified in instructions)
      */
 
-    private void loadData() {
+    private void loadTempData() {
 
         allShopItems = ShopItem.listAll(ShopItem.class);
 
@@ -62,13 +64,13 @@ public class DBManager {
         }
     }
 
-    //TODO create method to add to the order
+    //TODO create method to add to "itemOrder"
 
-    //TODO create method to remove from an order
+    //TODO create method to remove from "itemOrder"
 
-    //TODO create method to clear order
+    //TODO create method to clear "itemOrder"
 
-    //TODO create method to return all available shop items
+    //Method to return all available shop items
     public List<ShopItem> getItemsAvailable(){
         return allShopItems;
     }
@@ -86,6 +88,21 @@ public class DBManager {
             }
         }
         return total;
+    }
+
+
+    public void loadUserData(Context context) {
+        itemOrder = new HashMap<String,Integer>();
+        //see if previous order exists
+        String key = context.getResources().getString(R.string.preference_file_key);
+        SharedPreferences sharedPref = context.getApplicationContext().getSharedPreferences(key, Context.MODE_PRIVATE);
+
+        int totalItemsOrdered = sharedPref.getInt(COUNTKEY, 0);
+
+        //If there was an order, load the data
+        if(totalItemsOrdered > 0){
+            //TODO 1. get all keys 2. loop through 3. store values matching items in "itemOrder"
+        }
     }
 
     /**
