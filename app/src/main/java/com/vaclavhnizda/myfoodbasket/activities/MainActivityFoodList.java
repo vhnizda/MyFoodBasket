@@ -29,6 +29,7 @@ public class MainActivityFoodList extends AppCompatActivity{
         setContentView(R.layout.activity_main_food_list);
         ButterKnife.bind(this);
 
+        //Restore local data (old basket) and setup DB data connection
         myControlMan = new ControlManager();
 
     }
@@ -37,7 +38,10 @@ public class MainActivityFoodList extends AppCompatActivity{
     public void onResume(){
         super.onResume();
 
-        //TODO Load data into view and link buttons 1. produce we can sell
+        //Load local user data
+        myControlMan.loadLocalData(this);
+
+        //Load data into view and link buttons 1. produce we can sell
         LayoutBuilder.loadShopItems(myControlMan.getShopListListener(), myControlMan.getShoppingList(), shopingItemContainer);
 
     }
@@ -59,13 +63,8 @@ public class MainActivityFoodList extends AppCompatActivity{
     public void launchBasket(){
         //This is where the basket is launched
         Intent intent = new Intent(this, ActivityBasket.class);
+        //TODO pass a reference to the control manager
         startActivity(intent);
-    }
-
-
-    @OnClick(R.id.currency_button_main)
-    public void currencyChange(){
-        //TODO allow selection of other currencies
     }
 
     public void onClick(View view){

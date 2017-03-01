@@ -43,4 +43,7 @@ public class ControlManager implements View.OnClickListener{
     public void onClick(View view) {
 
     }
+
+    public void loadLocalData(Context contex) {
+    }
 }
