@@ -21,4 +21,8 @@ public class ShopItem extends SugarRecord{
         this.stockCount = stockCount;
     }
 
+    public String getIconRef(){
+        return iconRef;
+    }
+
 }

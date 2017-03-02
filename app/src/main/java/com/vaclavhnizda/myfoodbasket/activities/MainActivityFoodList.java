@@ -3,11 +3,17 @@ package com.vaclavhnizda.myfoodbasket.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.vaclavhnizda.myfoodbasket.R;
 import com.vaclavhnizda.myfoodbasket.controller.ControlManager;
+import com.vaclavhnizda.myfoodbasket.model.ShopItem;
+import com.vaclavhnizda.myfoodbasket.viewtools.DisplayStats;
 import com.vaclavhnizda.myfoodbasket.viewtools.LayoutBuilder;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,8 +43,16 @@ public class MainActivityFoodList extends AppCompatActivity{
         //Load local user data
         myControlMan.loadLocalData(this);
 
-        //Load data into view and link buttons 1. produce we can sell
-        LayoutBuilder.loadShopItems(myControlMan.getShopListListener(), myControlMan.getShoppingList(), shopingItemContainer);
+        //Load data into view and link buttons
+        int screenWidth = DisplayStats.getWidth(this);
+        int screenHeight = DisplayStats.getHeight(this);
+
+        List<Button> allProduceButtons  = LayoutBuilder.createButtonsAndLink(this, myControlMan.getShoppingList(), myControlMan.getShopListListener());
+        LayoutBuilder.loadShopItems(screenWidth, screenHeight, shopingItemContainer, allProduceButtons);
+
+    }
+
+    private void createButtonsAndLink(List<ShopItem> shoppingList, View.OnClickListener shopListListener) {
 
     }
 
