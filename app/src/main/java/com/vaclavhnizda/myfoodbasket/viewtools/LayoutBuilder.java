@@ -44,8 +44,8 @@ public class LayoutBuilder {
             Button newButton = new Button(context);
             ShopItem shopItem = shoppingList.get(index);
 
-            newButton.setText(shopItem.getItemName());
-
+//            newButton.setText(shopItem.getItemName());
+            newButton.setText("Hello my button");
             newButton.setOnClickListener(shopListListener);
 
             allButtons.add(newButton);
@@ -77,7 +77,8 @@ public class LayoutBuilder {
             LinearLayout newRowLayout = new LinearLayout(shopingItemContainer.getContext());
             for(int y = 0; y < colCount; y++){
                 int loc = (x*colCount) + y;
-                newRowLayout.addView(allProduceButtons.get(loc));
+                if(loc < allProduceButtons.size())
+                    newRowLayout.addView(allProduceButtons.get(loc));
             }
             shopingItemContainer.addView(newRowLayout);
         }
