@@ -46,6 +46,7 @@ public class LayoutBuilder {
 
 //            newButton.setText(shopItem.getItemName());
             newButton.setText("Hello my button");
+            newButton.setId(shopItem.getId().intValue());
             newButton.setOnClickListener(shopListListener);
 
             allButtons.add(newButton);

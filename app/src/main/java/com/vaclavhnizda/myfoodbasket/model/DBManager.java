@@ -146,4 +146,23 @@ public class DBManager {
         return itemPlaceholder;
     }
 
+    /**
+     * Method to increase or decrease an order
+     * @param id this is the item id to match
+     * @param amount this is the amount to change it by
+     */
+    public void changeOrder(int id, int amount) {
+        if(amount == 0 || id < 0)
+            return;
+
+        String idKey = Integer.toString(id);
+
+        Integer total = amount;
+
+        if(itemOrder.containsKey(idKey)){
+            total += itemOrder.get(idKey);
+        }
+
+        itemOrder.put(Integer.toString(id),total); //update map
+    }
 }

@@ -3,6 +3,7 @@ package com.vaclavhnizda.myfoodbasket.controller;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.View;
+import android.widget.Button;
 
 import com.vaclavhnizda.myfoodbasket.R;
 import com.vaclavhnizda.myfoodbasket.model.DBManager;
@@ -41,7 +42,12 @@ public class ControlManager implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-
+            //TODO add to user shopping list what they wanted to order from pressing a button.
+            //TODO later add options to delete, and other button triggers (seperate listener class)
+        if(view.getClass() == Button.class){
+            int id = view.getId();
+            myDBMan.changeOrder(id,1);
+        }
     }
 
     public void loadLocalData(Context context) {
