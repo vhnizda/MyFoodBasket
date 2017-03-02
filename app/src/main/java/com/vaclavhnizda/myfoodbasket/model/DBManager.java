@@ -32,11 +32,11 @@ public class DBManager {
         for(ShopItem item : allShopItems) {
 
             //TODO remove this test into external testing if possible
-            System.out.println(item.getId() + " : " +item.iconRef + " are in a " + item.unitOfMeasurement);
+            System.out.println(item.getId() + " : " +item.itemName + " are in a " + item.unitOfMeasurement);
 
             ShopItem temp = ShopItem.findById(ShopItem.class,item.getId());
 
-            System.out.println(temp.getId() + " : " +temp.iconRef + " uses the measurement unit: " + temp.unitOfMeasurement);
+            System.out.println(temp.getId() + " : " +temp.itemName + " uses the measurement unit: " + temp.unitOfMeasurement);
         }
     }
 

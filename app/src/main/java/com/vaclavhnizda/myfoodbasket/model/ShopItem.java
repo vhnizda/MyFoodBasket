@@ -7,22 +7,22 @@ import com.orm.SugarRecord;
  */
 
 public class ShopItem extends SugarRecord{
-    String iconRef;
+    String itemName;
     String unitOfMeasurement;
     double priceUSDReference;
     int stockCount; // use later
 
     public ShopItem(){}
 
-    public ShopItem(String iconRef, String unitOfMeasurement, double priceUSDreference, int stockCount){
-        this.iconRef = iconRef;
+    public ShopItem(String itemName, String unitOfMeasurement, double priceUSDreference, int stockCount){
+        this.itemName = itemName;
         this.unitOfMeasurement = unitOfMeasurement;
         this.priceUSDReference = priceUSDreference;
         this.stockCount = stockCount;
     }
 
-    public String getIconRef(){
-        return iconRef;
+    public String getItemName(){
+        return itemName;
     }
 
 }
