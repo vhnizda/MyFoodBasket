@@ -21,6 +21,14 @@ public class LayoutBuilder {
      * @param shopingItemContainer
      */
     public static void loadShopItems(View.OnClickListener buttonListener, List<ShopItem> shoppingList, LinearLayout shopingItemContainer) {
-
+        //1. clear view
+        if(shopingItemContainer.getChildCount() > 0) {
+            shopingItemContainer.removeAllViews();
+        }
+        //2. Loop through produce
+        for(int index = 0; index < shoppingList.size(); index++) {
+            //3. create produce button
+            //4. link listener
+        }
     }
 }
