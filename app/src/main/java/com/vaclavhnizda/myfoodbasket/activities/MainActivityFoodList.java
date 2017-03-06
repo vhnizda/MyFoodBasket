@@ -43,6 +43,12 @@ public class MainActivityFoodList extends AppCompatActivity{
         //Load local user data
         myControlMan.loadLocalData(this);
 
+        populateView();
+
+    }
+
+    private void populateView() {
+
         //Load data into view and link buttons
         int screenWidth = DisplayStats.getWidth(this);
         int screenHeight = DisplayStats.getHeight(this);
@@ -50,7 +56,6 @@ public class MainActivityFoodList extends AppCompatActivity{
 
         List<Button> allProduceButtons  = LayoutBuilder.createButtonsAndLink(this, myControlMan.getShoppingList(), myControlMan.getShopListListener());
         LayoutBuilder.loadShopItems(screenWidth, screenHeight, shopingItemContainer, allProduceButtons);
-
     }
 
     @Override
