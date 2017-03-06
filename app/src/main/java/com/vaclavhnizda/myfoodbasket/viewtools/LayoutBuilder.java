@@ -6,11 +6,13 @@ import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.vaclavhnizda.myfoodbasket.model.ShopItem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by vaclav on 3/1/17.
@@ -34,7 +36,6 @@ public class LayoutBuilder {
             ShopItem shopItem = shoppingList.get(index);
 
             newButton.setText(shopItem.getItemName());
-//            newButton.setText("Hello my button");
             newButton.setId(shopItem.getId().intValue());
             newButton.setOnClickListener(shopListListener);
 
@@ -58,9 +59,12 @@ public class LayoutBuilder {
 
         //Column count, basic idea for now. later calculate number of items that would fit across
         int colCount = 2;
+        int itemDimensions = screenWidth/3;
+
         if (screenWidth > screenHeight) {
-            colCount = 3;
+            itemDimensions = screenHeight/3;
         }
+
 
         //Figure out how many rows will be created
         int rowCount = allProduceButtons.size() / colCount;
@@ -72,12 +76,53 @@ public class LayoutBuilder {
         //build structure: create row layout, add all items, add row to vertical layout
         for(int x = 0; x < rowCount; x++){
             LinearLayout newRowLayout = new LinearLayout(shopingItemContainer.getContext());
+            newRowLayout.setGravity(0x01); //center horizontally
+
             for(int y = 0; y < colCount; y++){
                 int loc = (x*colCount) + y;
-                if(loc < allProduceButtons.size())
-                    newRowLayout.addView(allProduceButtons.get(loc));
+                if(loc < allProduceButtons.size()) {
+                    Button button = allProduceButtons.get(loc);
+                    button.setHeight(itemDimensions);
+                    button.setWidth(itemDimensions);
+                    newRowLayout.addView(button);
+                }
             }
             shopingItemContainer.addView(newRowLayout);
         }
+    }
+
+    /**
+     * This method will create a list of all items being purchased and present a total in costs.
+     * @param myBasketLayout
+     * @param basket
+     * @param itemsAvailable
+     */
+    public static void loadBasket(LinearLayout myBasketLayout, Map<String,Integer> basket, List<ShopItem> itemsAvailable) {
+        //1.add row with horizontal layout
+        //2.add item name, quantity x price to each row
+        //3.add total to bottom
+
+        Context context = myBasketLayout.getContext();
+        myBasketLayout.removeAllViews();
+
+        for(String key : basket.keySet()){
+            LinearLayout newRowLayout = new LinearLayout(context);
+            newRowLayout.setGravity(0x05); //right
+
+            TextView newText = new TextView(context);
+            newText.setText(key + "   quantity: " + basket.get(key) + " x $");
+
+            newRowLayout.addView(newText);
+            myBasketLayout.addView(newRowLayout);
+        }
+
+        LinearLayout newRowLayout = new LinearLayout(context);
+        newRowLayout.setGravity(0x05); //right
+
+        TextView newText = new TextView((context));
+        newText.setText("Total: _______");
+
+        newRowLayout.addView(newText);
+        myBasketLayout.addView(newRowLayout);
     }
 }

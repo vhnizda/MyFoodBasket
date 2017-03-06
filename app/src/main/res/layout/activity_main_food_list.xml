@@ -11,14 +11,6 @@
     tools:context="com.vaclavhnizda.myfoodbasket.activities.MainActivityFoodList">
 
     <Button
-        android:text="@string/currency_default"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/currency_button_main"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"/>
-
-    <Button
         android:text="@string/shopping_basket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -188,4 +188,8 @@ public class DBManager {
         else
             itemOrder.put(Integer.toString(id),total); //update map
     }
+
+    public Map<String,Integer> getBasketList() {
+        return itemOrder;
+    }
 }

@@ -3,13 +3,11 @@ package com.vaclavhnizda.myfoodbasket.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.vaclavhnizda.myfoodbasket.R;
 import com.vaclavhnizda.myfoodbasket.controller.ControlManager;
-import com.vaclavhnizda.myfoodbasket.model.ShopItem;
 import com.vaclavhnizda.myfoodbasket.viewtools.DisplayStats;
 import com.vaclavhnizda.myfoodbasket.viewtools.LayoutBuilder;
 
@@ -54,7 +52,7 @@ public class MainActivityFoodList extends AppCompatActivity{
         int screenHeight = DisplayStats.getHeight(this);
 
 
-        List<Button> allProduceButtons  = LayoutBuilder.createButtonsAndLink(this, myControlMan.getShoppingList(), myControlMan.getShopListListener());
+        List<Button> allProduceButtons  = LayoutBuilder.createButtonsAndLink(this, myControlMan.getItemsAvailable(), myControlMan.getShopListListener());
         LayoutBuilder.loadShopItems(screenWidth, screenHeight, shopingItemContainer, allProduceButtons);
     }
 

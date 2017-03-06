@@ -10,6 +10,7 @@ import com.vaclavhnizda.myfoodbasket.model.DBManager;
 import com.vaclavhnizda.myfoodbasket.model.ShopItem;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by vaclav on 2/24/17.
@@ -32,7 +33,7 @@ public class ControlManager implements View.OnClickListener{
         myDBMan.saveUserData(context);
     }
 
-    public List<ShopItem> getShoppingList() {
+    public List<ShopItem> getItemsAvailable() {
         return myDBMan.getItemsAvailable();
     }
 
@@ -52,5 +53,9 @@ public class ControlManager implements View.OnClickListener{
 
     public void loadLocalData(Context context) {
         myDBMan.loadUserData(context);
+    }
+
+    public Map<String,Integer> getBasketList() {
+        return myDBMan.getBasketList();
     }
 }
