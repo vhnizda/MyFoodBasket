@@ -26,7 +26,6 @@ public class DBManager {
     public DBManager(){
 
         loadTempData();
-//        loadLocalData();
 
 
         for(ShopItem item : allShopItems) {
@@ -47,6 +46,7 @@ public class DBManager {
 
     private void loadTempData() {
 
+//        ShopItem.deleteAll(ShopItem.class);
         allShopItems = ShopItem.listAll(ShopItem.class);
 
         if(allShopItems.size() < 4) {
@@ -64,11 +64,30 @@ public class DBManager {
         }
     }
 
-    //TODO create method to add to "itemOrder"
+    //Method to add to "itemOrder"
+    public void addToOrder(int id){
+        changeOrder(id,1);
+    }
+    public void addToORder(int id, int amount){
+        if(amount > 0){
+            changeOrder(id,amount);
+        }
+    }
 
     //TODO create method to remove from "itemOrder"
+    public void reduceOrder(int id){
+        changeOrder(id,-1);
+
+    }
+
+    public void deleteItem(int id){
+        itemOrder.remove(Integer.toString(id));
+    }
 
     //TODO create method to clear "itemOrder"
+    public void clearOrder(){
+        itemOrder.clear();
+    }
 
     //Method to return all available shop items
     public List<ShopItem> getItemsAvailable(){
@@ -163,6 +182,10 @@ public class DBManager {
             total += itemOrder.get(idKey);
         }
 
-        itemOrder.put(Integer.toString(id),total); //update map
+        if(total <= 0){
+            itemOrder.remove(Integer.toString(id));
+        }
+        else
+            itemOrder.put(Integer.toString(id),total); //update map
     }
 }

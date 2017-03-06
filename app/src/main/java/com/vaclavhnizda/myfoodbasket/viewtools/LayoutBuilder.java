@@ -17,25 +17,14 @@ import java.util.List;
  */
 
 public class LayoutBuilder {
-//    /**
-//     * This method will take the given layout and populate it with shop items. Then it links back
-//     * all the click to a given listener.
-//     * @param buttonListener
-//     * @param shoppingList
-//     * @param shopingItemContainer
-//     */
-//    public static void loadShopItems(View.OnClickListener buttonListener, List<ShopItem> shoppingList, LinearLayout shopingItemContainer) {
-//        //1. clear view
-//        if(shopingItemContainer.getChildCount() > 0) {
-//            shopingItemContainer.removeAllViews();
-//        }
-//        //2. Loop through produce
-//        for(int index = 0; index < shoppingList.size(); index++) {
-//            //3. create produce button
-//            //4. link listener
-//        }
-//    }
 
+    /**
+     * This method will create all the buttons for each itme given in the list<ShopItem>
+     * @param context
+     * @param shoppingList
+     * @param shopListListener
+     * @return
+     */
     public static List<Button> createButtonsAndLink(Context context, List<ShopItem> shoppingList, View.OnClickListener shopListListener) {
 
         List<Button> allButtons = new ArrayList<Button>();
@@ -44,8 +33,8 @@ public class LayoutBuilder {
             Button newButton = new Button(context);
             ShopItem shopItem = shoppingList.get(index);
 
-//            newButton.setText(shopItem.getItemName());
-            newButton.setText("Hello my button");
+            newButton.setText(shopItem.getItemName());
+//            newButton.setText("Hello my button");
             newButton.setId(shopItem.getId().intValue());
             newButton.setOnClickListener(shopListListener);
 
@@ -55,6 +44,13 @@ public class LayoutBuilder {
         return allButtons;
     }
 
+    /**
+     * This method will load all buttons into a given LinearLayout and clear any previous buttons
+     * @param screenWidth
+     * @param screenHeight
+     * @param shopingItemContainer
+     * @param allProduceButtons
+     */
     public static void loadShopItems(int screenWidth, int screenHeight, LinearLayout shopingItemContainer, List<Button> allProduceButtons) {
 
         //Clear given layout

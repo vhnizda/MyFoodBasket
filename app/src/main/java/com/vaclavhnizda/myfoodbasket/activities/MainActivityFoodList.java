@@ -47,12 +47,9 @@ public class MainActivityFoodList extends AppCompatActivity{
         int screenWidth = DisplayStats.getWidth(this);
         int screenHeight = DisplayStats.getHeight(this);
 
+
         List<Button> allProduceButtons  = LayoutBuilder.createButtonsAndLink(this, myControlMan.getShoppingList(), myControlMan.getShopListListener());
         LayoutBuilder.loadShopItems(screenWidth, screenHeight, shopingItemContainer, allProduceButtons);
-
-    }
-
-    private void createButtonsAndLink(List<ShopItem> shoppingList, View.OnClickListener shopListListener) {
 
     }
 
@@ -71,14 +68,12 @@ public class MainActivityFoodList extends AppCompatActivity{
     @Override
     public void onStop(){
         super.onStop();
-        //TODO close down all big objects
     }
 
     @OnClick(R.id.basket_button_main)
     public void launchBasket(){
         //This is where the basket is launched
         Intent intent = new Intent(this, ActivityBasket.class);
-        //TODO pass a reference to the control manager
         startActivity(intent);
     }
 
