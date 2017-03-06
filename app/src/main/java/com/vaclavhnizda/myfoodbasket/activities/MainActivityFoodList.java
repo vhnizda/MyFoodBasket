@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.vaclavhnizda.myfoodbasket.R;
 import com.vaclavhnizda.myfoodbasket.controller.ControlManager;
@@ -22,6 +23,7 @@ public class MainActivityFoodList extends AppCompatActivity{
     private ControlManager myControlMan;
 
     @BindView(R.id.shop_items_layout) LinearLayout shopingItemContainer;
+    @BindView(R.id.totalOrderCountText) TextView totalOrderTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class MainActivityFoodList extends AppCompatActivity{
 
         //Load local user data
         myControlMan.loadLocalData(this);
+        myControlMan.addTotalToUpdate(totalOrderTextView);
 
         populateView();
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.vaclavhnizda.myfoodbasket.R;
 import com.vaclavhnizda.myfoodbasket.model.DBManager;
@@ -20,6 +21,7 @@ public class ControlManager implements View.OnClickListener{
     //variables
 
     private DBManager myDBMan;
+    private TextView totalOrderTextLink;
 
     public ControlManager(){
         myDBMan = new DBManager();
@@ -49,6 +51,16 @@ public class ControlManager implements View.OnClickListener{
             int id = view.getId();
             myDBMan.addToOrder(id);
         }
+
+        updateMainTotalText();
+    }
+
+    private void updateMainTotalText() {
+        if(totalOrderTextLink != null){
+            String part1 = "items in basket: ";
+            String part2 = String.valueOf(myDBMan.basketCount());
+            totalOrderTextLink.setText(part1 + part2);
+        }
     }
 
     public void loadLocalData(Context context) {
@@ -57,5 +69,11 @@ public class ControlManager implements View.OnClickListener{
 
     public Map<String,Integer> getBasketList() {
         return myDBMan.getBasketList();
+    }
+
+    //updates when total is changed.
+    public void addTotalToUpdate(TextView totalOrderTextView) {
+        totalOrderTextLink = totalOrderTextView;
+        updateMainTotalText();
     }
 }
