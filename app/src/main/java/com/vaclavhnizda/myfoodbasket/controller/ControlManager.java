@@ -47,7 +47,7 @@ public class ControlManager implements View.OnClickListener{
             //TODO later add options to delete, and other button triggers (seperate listener class)
         if(view.getClass() == Button.class){
             int id = view.getId();
-            myDBMan.changeOrder(id,1);
+            myDBMan.addToOrder(id);
         }
     }
 

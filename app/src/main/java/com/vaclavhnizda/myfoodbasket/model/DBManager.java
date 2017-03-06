@@ -68,7 +68,7 @@ public class DBManager {
     public void addToOrder(int id){
         changeOrder(id,1);
     }
-    public void addToORder(int id, int amount){
+    public void addToOrder(int id, int amount){
         if(amount > 0){
             changeOrder(id,amount);
         }
@@ -120,7 +120,22 @@ public class DBManager {
 
         //If there was an order, load the data
         if(totalItemsOrdered > 0){
-            //TODO 1. get all keys 2. loop through 3. store values matching items in "itemOrder"
+            //1. get all keys 2. loop through 3. store values matching items in "itemOrder"
+            Map<String, ?> allValues = sharedPref.getAll();
+            Set<String> keySet = allValues.keySet();
+            for(String currentKey : keySet){
+
+                if(currentKey.contains("shopitem")){
+                    //1. get store item value
+                    int storedValue = sharedPref.getInt(currentKey, 0);
+                    //2. remove prefix, convert to int --> id
+                    String idString = currentKey.replace(ITEMPREKEY, "");
+                    int id = Integer.parseInt(idString);
+                    //3. store value in itemOrder
+                    changeOrder(id,storedValue);
+                }
+
+            }
         }
     }
 
@@ -170,7 +185,7 @@ public class DBManager {
      * @param id this is the item id to match
      * @param amount this is the amount to change it by
      */
-    public void changeOrder(int id, int amount) {
+    private void changeOrder(int id, int amount) {
         if(amount == 0 || id < 0)
             return;
 

@@ -59,12 +59,6 @@ public class MainActivityFoodList extends AppCompatActivity{
     @Override
     public void onPause(){
         super.onPause();
-
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState){
-        super.onSaveInstanceState(outState);
         myControlMan.saveData(this);
     }
 
