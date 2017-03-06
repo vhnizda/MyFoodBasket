@@ -33,6 +33,11 @@ public class ActivityBasket extends AppCompatActivity {
         loadBasket();
     }
 
+    @Override
+    protected void onPause(){
+        myControlMan.saveData(this);
+    }
+
     private void loadBasket() {
         Map<String,Integer> basket = myControlMan.getBasketList();
         List<ShopItem> itemsAvailable = myControlMan.getItemsAvailable();
