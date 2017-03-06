@@ -76,4 +76,8 @@ public class ControlManager implements View.OnClickListener{
         totalOrderTextLink = totalOrderTextView;
         updateMainTotalText();
     }
+
+    public void clearBasket() {
+        myDBMan.clearOrder();
+    }
 }

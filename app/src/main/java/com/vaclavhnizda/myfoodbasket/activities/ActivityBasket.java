@@ -1,7 +1,10 @@
 package com.vaclavhnizda.myfoodbasket.activities;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.vaclavhnizda.myfoodbasket.R;
@@ -16,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ActivityBasket extends AppCompatActivity {
+public class ActivityBasket extends AppCompatActivity implements DialogInterface.OnClickListener{
 
     @BindView(R.id.basket_list) LinearLayout myBasketLayout;
     private ControlManager myControlMan;
@@ -51,8 +54,28 @@ public class ActivityBasket extends AppCompatActivity {
         this.finish();
     }
 
-    @OnClick(R.id.currency_button_in_basket)
-    public void currencyChange(){
-        //TODO allow selection of other currencies
+    @OnClick(R.id.delete_basket)
+    public void deleteBasket(){
+        //confirm they want to delete
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Empty Cart");
+        builder.setMessage("Are you sure you want to clear your cart?");
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                dialog.cancel();
+            }
+        });
+        //clear saved contents
+        builder.setPositiveButton(R.string.yes, this);
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    @Override
+    public void onClick(DialogInterface dialogInterface, int i) {
+        myControlMan.clearBasket();
+        loadBasket();
     }
 }

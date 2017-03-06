@@ -19,12 +19,12 @@
         android:id="@+id/main_return_button_in_basket" />
 
     <Button
-        android:text="@string/currency_default"
+        android:id="@+id/delete_basket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/currency_button_in_basket"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:text="@string/clear_basket" />
 
     <ScrollView
         android:layout_width="match_parent"
