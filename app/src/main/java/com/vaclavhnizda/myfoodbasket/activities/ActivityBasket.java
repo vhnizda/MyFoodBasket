@@ -35,6 +35,7 @@ public class ActivityBasket extends AppCompatActivity {
 
     @Override
     protected void onPause(){
+        super.onPause();
         myControlMan.saveData(this);
     }
 

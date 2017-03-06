@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.vaclavhnizda.myfoodbasket.model.ShopItem;
+import com.vaclavhnizda.myfoodbasket.utilities.SearchTool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,25 +105,43 @@ public class LayoutBuilder {
 
         Context context = myBasketLayout.getContext();
         myBasketLayout.removeAllViews();
+        double totalCost = 0.0;
 
         for(String key : basket.keySet()){
             LinearLayout newRowLayout = new LinearLayout(context);
             newRowLayout.setGravity(0x05); //right
 
             TextView newText = new TextView(context);
-            newText.setText(key + "   quantity: " + basket.get(key) + " x $");
+
+            //Locate item
+            int id = Integer.parseInt(key);
+            ShopItem shopItem = SearchTool.findItem(id,itemsAvailable);
+
+            //Extract information
+            String itemName = shopItem.getItemName();
+            String itemGrouping = shopItem.getUnitOfMeasurement();
+            Double priceUSD = shopItem.getPriceUSDReference();
+            String priceUSDString = String.format( "%.2f", priceUSD );
+            int quantityOfOrder = basket.get(key);
+
+            //Post to text view
+            newText.setText(itemName + "  (" + itemGrouping + ")   Quantity:  " + quantityOfOrder + "   x   $" + priceUSDString);
 
             newRowLayout.addView(newText);
             myBasketLayout.addView(newRowLayout);
+
+            //update total
+            totalCost += (priceUSD * quantityOfOrder);
         }
 
         LinearLayout newRowLayout = new LinearLayout(context);
         newRowLayout.setGravity(0x05); //right
 
         TextView newText = new TextView((context));
-        newText.setText("Total: _______");
+        newText.setText("Total price in USD:       $" + String.format( "%.2f", totalCost ));
 
         newRowLayout.addView(newText);
         myBasketLayout.addView(newRowLayout);
     }
+
 }

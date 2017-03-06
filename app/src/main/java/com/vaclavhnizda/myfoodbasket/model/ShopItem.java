@@ -25,4 +25,8 @@ public class ShopItem extends SugarRecord{
         return itemName;
     }
 
+    public String getUnitOfMeasurement() { return unitOfMeasurement; }
+
+    public double getPriceUSDReference() { return priceUSDReference; }
+
 }
