@@ -27,7 +27,8 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
     testCompile 'junit:junit:4.12'
-    compile 'com.github.satyan:sugar:1.4'
+    compile 'com.github.satyan:sugar:1.4'                               //Simplified Database management
     compile 'com.jakewharton:butterknife:8.5.1'                         //xml object access simplification
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'    //xml object access simplification
+    compile 'com.google.code.gson:gson:2.8.0'                           //JSON communication
 }
